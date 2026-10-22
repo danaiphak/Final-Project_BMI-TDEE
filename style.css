@@ -1,8 +1,10 @@
 /* ==========================================================================
-   Global & Reset Styles
+   1. Global & Reset Styles (การตั้งค่าทั่วไปและล้างค่าเริ่มต้น)
    ========================================================================== */
+/* นำเข้าฟอนต์ 'Prompt' จาก Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
 
+/* รีเซ็ต Margin, Padding และกำหนด Box Model ให้ทุก Element ในหน้าเว็บ */
 * {
     margin: 0;
     padding: 0;
@@ -10,24 +12,25 @@
     font-family: 'Prompt', sans-serif;
 }
 
+/* ตั้งค่าสไตล์หลักของตัวโครงสร้างหน้าเว็บ (Body) */
 body {
-    background-color: #f8fafc;
-    color: #334155;
-    line-height: 1.6;
+    background-color: #f8fafc; /* สีพื้นหลังโทนฟ้าอ่อน-เทา */
+    color: #334155;            /* สีตัวอักษรหลัก */
+    line-height: 1.6;          /* ระยะห่างบรรทัด */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh;         /* กำหนดความสูงขั้นต่ำให้เต็มหน้าจอเสมอเพื่อดัน Footer ลงล่าง */
 }
 
 /* ==========================================================================
-   Header & Navigation Bar
+   2. Header & Navigation Bar (ส่วนหัวและแถบเมนูนำทาง)
    ========================================================================== */
 header {
     background-color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    position: sticky;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* เงาด้านล่างของ Header */
+    position: sticky;                           /* ตรึง Header ให้อยู่ด้านบนเมื่อเลื่อนหน้าจอ */
     top: 0;
-    z-index: 100;
+    z-index: 100;                               /* ให้อยู่ชั้นบนสุดไม่โดน Element อื่นทับ */
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -35,25 +38,28 @@ header {
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* จัดวางโลโก้อยู่ซ้าย และเมนูอยู่ขวา */
     align-items: center;
     padding: 1rem 2rem;
 }
 
+/* สไตล์โลโก้ */
 .logo {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #2563eb;                 /* สีฟ้าหลัก */
     text-decoration: none;
     letter-spacing: 0.5px;
 }
 
+/* กลุ่มลิงก์เมนูนำทาง */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.75rem;                   /* ระยะห่างระหว่างปุ่มเมนู */
 }
 
+/* ปุ่มลิงก์ในเมนู */
 .nav-links a {
     text-decoration: none;
     color: #475569;
@@ -61,37 +67,39 @@ header {
     font-size: 0.95rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    transition: all 0.25s ease;
+    transition: all 0.25s ease;     /* เอฟเฟกต์การเปลี่ยนสีนุ่มนวล */
 }
 
+/* เอฟเฟกต์เมื่อวางเมาส์เหนือลิงก์เมนู */
 .nav-links a:hover {
     color: #2563eb;
     background-color: #eff6ff;
 }
 
 /* ==========================================================================
-   Main Layout & Centering
+   3. Main Layout & Centering (การจัดวางเนื้อหาหลักกลางหน้าจอ)
    ========================================================================== */
 main {
-    flex: 1;
+    flex: 1;                        /* ขยายพื้นที่เพื่อดัน Footer ไปอยู่ด้านล่างสุด */
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;            /* จัดเนื้อหาให้อยู่ตรงกลางแนวนอน */
     justify-content: center;
 }
 
 /* ==========================================================================
-   Home Page (index.php)
+   4. Home Page (หน้าแรก index.php)
    ========================================================================== */
+/* ส่วน Hero Banner ต้อนรับ */
 .hero {
     width: 100%;
     text-align: center;
     padding: 3.5rem 2rem;
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); /* ไล่เฉดสีฟ้าอ่อน */
     border-radius: 20px;
     margin-bottom: 2.5rem;
 }
@@ -115,10 +123,11 @@ main {
     gap: 1rem;
 }
 
+/* การ์ดแนะนำฟีเจอร์หลัก (จัดวางแบบ Grid Responsive) */
 .features {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติตามขนาดจอ */
     gap: 1.5rem;
 }
 
@@ -131,6 +140,7 @@ main {
     transition: transform 0.25s ease;
 }
 
+/* เอฟเฟกต์ลอยขึ้นเมื่อวางเมาส์เหนือการ์ดฟีเจอร์ */
 .feature-card:hover {
     transform: translateY(-4px);
 }
@@ -148,7 +158,7 @@ main {
 }
 
 /* ==========================================================================
-   Form Containers (Login, Register, Calculate)
+   5. Form Containers (กล่องฟอร์มกรอกข้อมูล: Login, Register, Calculate)
    ========================================================================== */
 .form-container {
     background-color: #ffffff;
@@ -168,6 +178,7 @@ main {
     font-weight: 700;
 }
 
+/* จัดกลุ่มองค์ประกอบในฟอร์ม (Label + Input) */
 .form-group {
     margin-bottom: 1.25rem;
     display: flex;
@@ -181,6 +192,7 @@ main {
     color: #334155;
 }
 
+/* สไตล์ของช่องกรอกข้อมูล Input และ Select */
 .form-group input,
 .form-group select {
     width: 100%;
@@ -194,6 +206,7 @@ main {
     transition: all 0.25s ease;
 }
 
+/* เอฟเฟกต์เรืองแสงเมื่อคลิกเลือกช่องกรอกข้อมูล (Focus State) */
 .form-group input:focus,
 .form-group select:focus {
     border-color: #2563eb;
@@ -201,6 +214,7 @@ main {
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
+/* ข้อความลิงก์สลับหน้าด้านล่างฟอร์ม */
 .form-container > p {
     text-align: center;
     margin-top: 1.5rem;
@@ -221,8 +235,9 @@ main {
 }
 
 /* ==========================================================================
-   Buttons
+   6. Buttons (ปุ่มกดแบบต่างๆ)
    ========================================================================== */
+/* ปุ่มกดหลัก (Primary Button) */
 .btn, 
 button.btn,
 a.btn {
@@ -232,7 +247,7 @@ a.btn {
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff !important;
-    background-color: #2563eb;
+    background-color: #2563eb;      /* สีฟ้าหลัก */
     border: none;
     border-radius: 10px;
     text-decoration: none;
@@ -243,6 +258,7 @@ a.btn {
     margin-top: 0.75rem;
 }
 
+/* เอฟเฟกต์เมื่อวางเมาส์เหนือปุ่มกดหลัก */
 .btn:hover, 
 button.btn:hover,
 a.btn:hover {
@@ -251,6 +267,7 @@ a.btn:hover {
     box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
 }
 
+/* ปุ่มกดรอง (Secondary Button) */
 .btn-secondary,
 a.btn-secondary {
     background-color: #ffffff;
@@ -259,6 +276,7 @@ a.btn-secondary {
     box-shadow: none;
 }
 
+/* เอฟเฟกต์เมื่อวางเมาส์เหนือปุ่มกดรอง */
 .btn-secondary:hover,
 a.btn-secondary:hover {
     background-color: #f1f5f9;
@@ -267,8 +285,9 @@ a.btn-secondary:hover {
 }
 
 /* ==========================================================================
-   Alert Messages & Results Box
+   7. Alert Messages & Results Box (กล่องแจ้งเตือนและกล่องแสดงผลคำนวณ)
    ========================================================================== */
+/* กล่องแจ้งเตือนข้อผิดพลาด (สีแดง) */
 .error-message {
     background-color: #fef2f2;
     color: #dc2626;
@@ -279,6 +298,7 @@ a.btn-secondary:hover {
     font-size: 0.95rem;
 }
 
+/* กล่องแจ้งเตือนสำเร็จ (สีเขียว) */
 .success-message {
     background-color: #f0fdf4;
     color: #166534;
@@ -296,6 +316,7 @@ a.btn-secondary:hover {
     margin-left: 0.5rem;
 }
 
+/* กล่องไฮไลท์แสดงผลการคำนวณ BMI / TDEE */
 .result-container {
     margin-top: 1.5rem;
     padding: 1.25rem;
@@ -326,13 +347,14 @@ a.btn-secondary:hover {
 }
 
 /* ==========================================================================
-   Profile Page (profile.php)
+   8. Profile Page (สไตล์หน้าโปรไฟล์ profile.php)
    ========================================================================== */
 .profile-card {
     max-width: 520px;
     margin: 0 auto;
 }
 
+/* สร้างวงกลมรูปไอคอนอวตารผู้ใช้ด้านบนการ์ดโปรไฟล์ */
 .profile-card::before {
     content: "👤";
     display: flex;
@@ -349,6 +371,7 @@ a.btn-secondary:hover {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
+/* กล่องรวบรวมรายการข้อมูลส่วนตัว */
 .profile-info {
     background-color: #f8fafc;
     border-radius: 14px;
@@ -360,6 +383,7 @@ a.btn-secondary:hover {
     margin-bottom: 1.5rem;
 }
 
+/* แถบข้อมูลแต่ละรายการ */
 .info-item {
     display: flex;
     justify-content: space-between;
@@ -378,6 +402,7 @@ a.btn-secondary:hover {
     font-weight: 500;
 }
 
+/* ป้าย Badge แสดงค่าข้อมูล */
 .info-value {
     color: #0f172a;
     font-weight: 600;
@@ -395,7 +420,7 @@ a.btn-secondary:hover {
 }
 
 /* ==========================================================================
-   Admin Page Table
+   9. Admin Page Table (ตารางแสดงรายชื่อสมาชิกหน้าแอดมิน admin.php)
    ========================================================================== */
 .admin-container {
     background-color: #ffffff;
@@ -413,11 +438,13 @@ a.btn-secondary:hover {
     font-weight: 700;
 }
 
+/* ทำให้ตารางสามารถเลื่อนซ้าย-ขวาได้เมื่อแสดงผลบนหน้าจอแคบ */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
 }
 
+/* สไตล์ตารางข้อมูลสมาชิก */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -425,21 +452,24 @@ a.btn-secondary:hover {
     text-align: left;
 }
 
+/* สไตล์หัวตาราง */
 .admin-table th {
     background-color: #f1f5f9;
     color: #334155;
     font-weight: 600;
     padding: 0.85rem 1rem;
     border-bottom: 2px solid #cbd5e1;
-    white-space: nowrap;
+    white-space: nowrap;            /* ป้องกันข้อความหัวตารางตัดขึ้นบรรทัดใหม่ */
 }
 
+/* สไตล์ช่องข้อมูลในตาราง */
 .admin-table td {
     padding: 0.85rem 1rem;
     border-bottom: 1px solid #e2e8f0;
     color: #475569;
 }
 
+/* เปลี่ยนสีแถวเมื่อวางเมาส์เหนือแถวตาราง */
 .admin-table tbody tr:hover {
     background-color: #f8fafc;
 }
@@ -449,7 +479,7 @@ a.btn-secondary:hover {
 }
 
 /* ==========================================================================
-   Footer
+   10. Footer (ส่วนท้ายของเว็บ)
    ========================================================================== */
 footer {
     background-color: #ffffff;
@@ -461,19 +491,22 @@ footer {
 }
 
 /* ==========================================================================
-   Responsive Settings (Mobile)
+   11. Responsive Settings (การปรับแต่งการแสดงผลบนสมาร์ทโฟน/จอขนาดเล็ก)
    ========================================================================== */
 @media (max-width: 640px) {
+    /* ปรับ Navbar เป็นแนวตั้งบนมือถือ */
     .navbar {
         flex-direction: column;
         gap: 0.75rem;
         padding: 1rem;
     }
 
+    /* ปรับกลุ่มปุ่มกดเป็นแนวตั้ง */
     .hero-buttons {
         flex-direction: column;
     }
 
+    /* ลดระยะ Padding ของกล่องฟอร์มบนจอเล็ก */
     .form-container, .profile-card, .admin-container {
         padding: 1.5rem;
     }
