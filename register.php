@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="form-group">
                         <label for="username">ชื่อผู้ใช้</label>
                         <input
-                            type="tel"
+                            type="text"
                             id="username"
                             name="username"
                             maxlength="100"
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         >
                     </div>
 
-                    <!-- ช่องกรอกหมายเลขโทรศัพท์ (รองรับเบอร์ไทย ขึ้นต้นด้วย 0 และมี 10 หลัก) -->
+                    <!-- ช่องกรอกหมายเลขโทรศัพท์ (ขึ้นต้นด้วย 0 และมี 10 หลัก) -->
                     <div class="form-group">
                         <label for="phone_number">หมายเลขโทรศัพท์</label>
                         <input
